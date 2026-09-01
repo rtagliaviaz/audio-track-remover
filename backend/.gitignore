@@ -1,3 +1,16 @@
 node_modules/
 .env
 package-lock.json
+
+*.mp4
+*.mkv
+*.avi
+*.mov
+*.webm
+*.flv
+*.wmv
+*.m4v
+*.mpg
+*.mpeg
+*.wav
+*.mp3
