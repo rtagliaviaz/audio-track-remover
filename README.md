@@ -22,9 +22,10 @@ English | [Spanish](./README.es.md)
 
 ## Demo
 
-[![Video Demo](https://img.youtube.com/vi/vQuJTb5Qt9A/0.jpg)](https://youtu.be/vQuJTb5Qt9A)
+[![Video Demo](https://img.youtube.com/vi/vQuJTb5Qt9A/0.jpg)](https://www.youtube.com/watch?v=vQuJTb5Qt9A)
 
-<!-- > Watch the demo video to see the tool in action. -->
+
+[![Watch on YouTube](https://img.shields.io/badge/Watch%20on-YouTube-FF0000?style=for-the-badge&logo=youtube)](https://youtu.be/vQuJTb5Qt9A)
 
 ## Usage
 
