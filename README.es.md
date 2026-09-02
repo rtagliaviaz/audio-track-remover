@@ -298,7 +298,7 @@ Obtener el estado actual de la cola.
 
 #### `GET /api/output-folder`
 
-btener la ruta de salida donde los videos procesados serán guardados.
+Obtener la ruta de salida donde los videos procesados serán guardados.
 
 - **Endpoint**: `/api/output-folder`
 - **Method**: `GET`
@@ -310,6 +310,7 @@ btener la ruta de salida donde los videos procesados serán guardados.
 {
   "outputFolder": "D:/outputs"
 }
+```
 
 ### Tests
 ```bash

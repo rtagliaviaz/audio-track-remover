@@ -307,6 +307,7 @@ Get the configured output folder path.
 {
   "outputFolder": "D:/outputs"
 }
+```
 
 ### Tests
 ```bash
