@@ -292,6 +292,21 @@ Get the current status of the processing queue.
 }
 ```
 
+#### `GET /api/output-folder`
+
+Get the configured output folder path.
+
+- **Endpoint**: `/api/output-folder`
+- **Method**: `GET`
+- **Status Codes**:
+  - `200 OK`: Output folder retrieved successfully.
+  - `500 Internal Server Error`: Failed to get output folder.
+- **Response**:
+```json
+{
+  "outputFolder": "D:/outputs"
+}
+
 ### Tests
 ```bash
 cd backend

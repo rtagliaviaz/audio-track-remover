@@ -296,6 +296,21 @@ Obtener el estado actual de la cola.
 }
 ```
 
+#### `GET /api/output-folder`
+
+btener la ruta de salida donde los videos procesados serán guardados.
+
+- **Endpoint**: `/api/output-folder`
+- **Method**: `GET`
+- **Status Codes**:
+  - `200 OK`: Output folder retrieved successfully.
+  - `500 Internal Server Error`: Failed to get output folder.
+- **Response**:
+```json
+{
+  "outputFolder": "D:/outputs"
+}
+
 ### Tests
 ```bash
 cd backend
