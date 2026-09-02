@@ -22,9 +22,9 @@ English | [Spanish](./README.es.md)
 
 ## Demo
 
-<!-- [![Video Demo](https://img.youtube.com/vi/TU_VIDEO_ID/0.jpg)](https://youtu.be/TU_VIDEO_ID)
+[![Video Demo](https://img.youtube.com/vi/vQuJTb5Qt9A/0.jpg)](https://youtu.be/vQuJTb5Qt9A)
 
-> Watch the demo video to see the tool in action. -->
+<!-- > Watch the demo video to see the tool in action. -->
 
 ## Usage
 
