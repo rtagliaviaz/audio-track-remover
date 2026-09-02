@@ -100,4 +100,14 @@ export const videoController = {
             }
         }
     },
+
+    // GET /api/output-folder (nuevo)
+    getOutputFolder: (req: Request, res: Response) => {
+        try {
+            res.json({ outputFolder: config.outputFolder });
+        } catch (error) {
+            console.error('Get output folder error:', error);
+            res.status(500).json({ error: 'Failed to get output folder' });
+        }
+    },
 };

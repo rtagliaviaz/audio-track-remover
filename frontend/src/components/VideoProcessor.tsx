@@ -1,6 +1,7 @@
 import React from 'react';
 import { TrackList } from './TrackList';
 import { ProgressBar } from './ProgressBar';
+import { ProcessStatus } from './ProcessStatus';
 import type { VideoInfo, AudioTrack } from '../types';
 
 interface VideoProcessorProps {
@@ -11,6 +12,7 @@ interface VideoProcessorProps {
     loading: boolean;
     processed: boolean;
     totalProgress: number;
+    successMessage?: string;
     onToggleTrack: (index: number) => void;
     onProcess: () => void;
 }
@@ -23,10 +25,13 @@ export const VideoProcessor: React.FC<VideoProcessorProps> = ({
   loading,
   processed,
   totalProgress,
+  successMessage,
   onToggleTrack,
   onProcess,
 }) => {
   if (!videoInfo) return null;
+
+  console.log('successMEssage', successMessage)
 
   const buttonText = loading ? 'Processing...' :
     selectedVideos.size > 0 ? `Process ${selectedVideos.size} Selected Videos` :
@@ -60,11 +65,7 @@ export const VideoProcessor: React.FC<VideoProcessorProps> = ({
 
       <ProgressBar progress={totalProgress} isLoading={loading} />
 
-      {processed && (
-        <p style={{ color: '#4CAF50', marginTop: '1rem' }}>
-            ✅ Video processed successfully. File saved in backend/outputs/
-        </p>
-      )}
+      <ProcessStatus processed={processed} message={successMessage} />
     </div>
   );
 };

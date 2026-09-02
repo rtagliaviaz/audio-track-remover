@@ -17,7 +17,7 @@ interface ErrorEntry {
 }
 
 export const Home: React.FC = () => {
-    const { videos, videoInfos, loadVideos, loadVideoInfo } = useVideos();
+    const { videos, videoInfos, loadVideos, loadVideoInfo, outputFolder } = useVideos();
     const {
         selectedVideo,
         selectedTracks,
@@ -48,6 +48,8 @@ export const Home: React.FC = () => {
         setProcessed,
         setLoading,
     } = useVideoProcessing();
+
+    // Sincronizar progreso SSE
     if (sseProgress > 0 && sseProgress !== processProgress) {
         setProcessProgress(sseProgress);
     }
@@ -134,7 +136,6 @@ export const Home: React.FC = () => {
         }
 
         if (selectedVideoInfo && selectedVideo) {
-            // Limpiar errores anteriores
             setErrors([]);
 
             await processSingle(
@@ -145,7 +146,6 @@ export const Home: React.FC = () => {
                     setQueueStatus('Processing...');
                 },
                 () => {},
-                // ✅ Callback para errores de procesamiento
                 (errorMsg) => {
                     addError(selectedVideo, errorMsg);
                 }
@@ -157,6 +157,10 @@ export const Home: React.FC = () => {
     };
 
     const totalProgress = uploadProgress > 0 && uploadProgress < 100 ? uploadProgress : processProgress;
+
+    const successMessage = processed
+        ? `✅ Video processed successfully. File saved in: ${outputFolder}`
+        : '';
 
     return (
         <div className="container">
@@ -191,6 +195,7 @@ export const Home: React.FC = () => {
                 totalProgress={totalProgress}
                 onToggleTrack={(index) => selectedVideo && toggleTrack(selectedVideo, index)}
                 onProcess={handleProcess}
+                successMessage={successMessage}
             />
         </div>
     );

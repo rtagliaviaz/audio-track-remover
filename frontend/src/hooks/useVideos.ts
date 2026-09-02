@@ -7,6 +7,7 @@ export const useVideos = () => {
   const [videoInfos, setVideoInfos] = useState<Map<string, VideoInfo>>(new Map());
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
+  const [outputFolder, setOutputFolder] = useState<string>('backend/outputs/');
   const isMounted = useRef(true);
 
   const loadVideos = async () => {
@@ -48,12 +49,24 @@ export const useVideos = () => {
     }
   };
 
+
+  const loadOutputFolder = async () => {
+        try {
+            const response = await videoApi.getOutputFolder();
+            setOutputFolder(response.data.outputFolder);
+        } catch (err) {
+            console.error('Failed to load output folder:', err);
+            setOutputFolder('backend/outputs/');
+        }
+    };
+
   useEffect(() => {
     let mounted = true;
 
     const init = async () => {
       if (!mounted) return;
       await loadVideos();
+      await loadOutputFolder();
     };
 
     init();
@@ -64,5 +77,5 @@ export const useVideos = () => {
      
   }, []);
 
-  return { videos, videoInfos, loading, error, loadVideos, loadVideoInfo };
+  return { videos, videoInfos, loading, error, loadVideos, loadVideoInfo, outputFolder, loadOutputFolder };
 };

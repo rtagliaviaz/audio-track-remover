@@ -8,6 +8,8 @@ router.get('/videos', videoController.listVideos);
 router.post('/video-info', videoController.getVideoInfo);
 router.post('/process', videoController.processVideo);
 
+router.get('/output-folder', videoController.getOutputFolder);
+
 router.get('/queue/status', queueController.getStatus);
 router.get('/events', queueController.events);
 

@@ -9,4 +9,5 @@ export const videoApi = {
   getVideoInfo: (filename: string) => api.post('/video-info', { filename }),
   processVideo: (data: { filename: string; tracksToKeep: number[]; outputName: string; outputFormat: string }) =>
     api.post('/process', data),
+  getOutputFolder: () => api.get('/output-folder'),
 };
